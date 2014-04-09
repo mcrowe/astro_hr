@@ -25,6 +25,7 @@ gem 'simple_form'
 gem 'underscore-rails'
 gem 'bootstrap-sass', '~> 3.1.1'
 gem 'bootstrap-generators', '~> 3.1.1'
+gem 'devise'
 
 group :development, :test do
   gem 'quiet_assets'

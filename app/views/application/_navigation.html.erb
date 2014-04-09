@@ -1,5 +1,6 @@
 <div class="navbar navbar-inverse navbar-fixed-top">
   <div class="container">
+
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
         <span class="sr-only">Toggle navigation</span>
@@ -7,14 +8,34 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <%= link_to "Project name", "#", :class => "navbar-brand" %>
+      <%= link_to "TrainingEd", "#", class: "navbar-brand" %>
     </div>
+
     <div class="collapse navbar-collapse">
+
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <% if current_manager %>
+          <li class="active"><a href="#">Users</a></li>
+          <li><a href="#about">Departments</a></li>
+        <% end %>
       </ul>
+
+      <ul class="nav navbar-nav pull-right">
+        <% if current_manager %>
+          <li>
+            <%= link_to 'Sign out', destroy_manager_session_path, method: :delete %>
+          </li>
+        <% else %>
+          <li class="<%= active_if_controller('devise/sessions') %>">
+            <%= link_to 'Sign In', new_manager_session_path %>
+          </li>
+
+          <li class="<%= active_if_controller('devise/registrations') %>">
+            <%= link_to 'Register', new_manager_registration_path %>
+          </li>
+        <% end %>
+      </ul>
+
     </div>
   </div>
 </div>
