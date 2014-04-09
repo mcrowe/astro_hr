@@ -1,0 +1,36 @@
+<div class="page-header">
+  <%= link_to @department.company, :class => 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Back
+  <% end %>
+  <%= link_to [:edit, @department], :class => 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Edit
+  <% end %>
+  <h1>Show department</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Name:</dt>
+  <dd><%= @department.name %></dd>
+
+  <dt>Budget:</dt>
+  <dd><%= @department.budget %></dd>
+</dl>
+
+<h2>Categories</h2>
+<ul>
+  <% @department.categories.each do |category| %>
+    <li><%= category.name %></li>
+  <% end %>
+</ul>
+
+<h2>Employees</h2>
+<ul>
+  <% @department.employees.each do |employee| %>
+    <li>
+      <strong><%= employee.name %></strong>
+      <%= link_to_glyphicon 'trash', department_employee_path(@department, employee), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %>
+    </li>
+  <% end %>
+</ul>

@@ -26,4 +26,11 @@ module ApplicationHelper
     Array(controller_names).include?(params[:controller])  ? 'active' : ''
   end
 
+  def shallow_resource_path(namespace = nil, parent, resource)
+    path = []
+    (path << namespace) if namespace
+    (path << parent) if resource.new_record?
+    path << resource
+  end
+
 end

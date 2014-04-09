@@ -1,0 +1,10 @@
+<%= simple_form_for shallow_resource_path(@department.company, @department) do |f| %>
+  <%= f.error_notification %>
+
+  <%= f.input :name %>
+  <%= f.input :budget %>
+  <%= f.input :category_ids, collection: Category.all, as: :check_boxes %>
+  <%= f.association :employees %>
+
+  <%= f.button :submit, class: 'btn-primary' %>
+<% end %>

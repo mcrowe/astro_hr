@@ -1,0 +1,19 @@
+<div class="page-header">
+  <%= link_to companies_path, :class => 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Back
+  <% end %>
+  <%= link_to @company, :class => 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-info-sign"></span>
+    Show
+  <% end %>
+  <h1>Editing company</h1>
+</div>
+
+<%= simple_form_for(@company) do |f| %>
+  <%= f.error_notification %>
+
+  <%= f.input attribute %>
+
+  <%= f.button :submit, class: 'btn-primary' %>
+<% end %>
