@@ -1,5 +1,7 @@
 Traininged::Application.routes.draw do
 
+  resources :courses
+
   devise_for :managers
 
   root to: 'companies#show'

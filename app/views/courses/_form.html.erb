@@ -1,0 +1,12 @@
+<%= simple_form_for(@course) do |f| %>
+  <%= f.error_notification %>
+
+      <%= f.input attribute %>
+      <%= f.input attribute %>
+      <%= f.input attribute %>
+      <%= f.input attribute %>
+      <%= f.input attribute %>
+  
+  <%= f.button :submit, class: 'btn-primary' %>
+
+<% end %>
