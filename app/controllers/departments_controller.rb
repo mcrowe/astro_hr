@@ -4,6 +4,8 @@ class DepartmentsController < ApplicationController
   before_action :set_department, only: [:show, :edit, :update, :destroy]
 
   def show
+    categories
+    @courses = Course.where("category_id IN (?)", @categories)
   end
 
   def new
@@ -38,6 +40,11 @@ class DepartmentsController < ApplicationController
   end
 
   private
+
+    def categories
+
+      @categories = Category.joins("join categories_departments on categories.id = categories_departments.category_id").where(["categories_departments.department_id = ?", @department.id]).pluck(:id)
+    end
 
     def set_company
       @company = Company.find(params[:company_id])

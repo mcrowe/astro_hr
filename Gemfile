@@ -26,6 +26,8 @@ gem 'underscore-rails'
 gem 'bootstrap-sass', '~> 3.1.1'
 gem 'bootstrap-generators', '~> 3.1.1'
 gem 'devise'
+gem 'acts-as-taggable-on'
+
 
 group :development, :test do
   gem 'quiet_assets'

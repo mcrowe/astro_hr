@@ -54,7 +54,7 @@
     </thead>
 
     <tbody>
-      <%= content_tag_for(:tr, Course.all) do |course| %>
+      <%= content_tag_for(:tr, @courses) do |course| %>
             <td><%= course.name %></td>
             <td><%= course.start_date %></td>
             <td><%= course.end_date %></td>

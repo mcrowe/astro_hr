@@ -18,7 +18,7 @@ ActiveRecord::Base.transaction do
   end
 
   100.times do
-    Course.create!(name: Faker::Company.name, start_date: Date.tomorrow, end_date: Date.tomorrow, description: Faker::Lorem.paragraph(sentence_count = 3), price: rand(100..1500), location: Faker::Address.city
+    Course.create!(name: Faker::Company.name, start_date: Date.tomorrow, end_date: Date.tomorrow, description: Faker::Lorem.paragraph(sentence_count = 3), price: rand(100..1500), location: Faker::Address.city, category_id: rand(17..20)
 )
   end
 
