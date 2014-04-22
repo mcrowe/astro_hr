@@ -1,10 +1,9 @@
 Traininged::Application.routes.draw do
 
-  resources :courses
+  devise_for :vendors 
+  resources :vendors, :courses
 
   devise_for :managers
-
-  root to: 'companies#show'
 
   resources :companies, only: [:show, :edit, :update] do
     resources :departments, shallow: true

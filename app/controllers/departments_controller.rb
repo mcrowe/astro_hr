@@ -42,8 +42,7 @@ class DepartmentsController < ApplicationController
   private
 
     def categories
-
-      @categories = Category.joins("join categories_departments on categories.id = categories_departments.category_id").where(["categories_departments.department_id = ?", @department.id]).pluck(:id)
+       @categories = Category.joins("join categories_departments on categories.id = categories_departments.category_id").where(["categories_departments.department_id = ?", @department.id]).pluck(:id)
     end
 
     def set_company

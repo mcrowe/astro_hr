@@ -35,6 +35,7 @@ group :development, :test do
   gem "debugger"
   gem 'spring'
   gem 'spring-commands-rspec'
+  gem 'pry'
 end
 
 group :test do

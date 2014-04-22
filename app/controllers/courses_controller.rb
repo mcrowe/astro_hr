@@ -9,7 +9,7 @@ class CoursesController < ApplicationController
   end
 
   def new
-    @course = Course.new
+    @course = Course.new(params[:vendor_attributes])
   end
 
   def edit
@@ -17,6 +17,9 @@ class CoursesController < ApplicationController
 
   def create
     @course = Course.new(course_params)
+    @course.vendor_id = current_vendor.id
+
+    
 
     if @course.save
       redirect_to @course, notice: 'Course was successfully created.'
@@ -46,6 +49,6 @@ class CoursesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def course_params
-      params.require(:course).permit(:name, :vendor_id, :start_date, :end_date, :description, :price, :location)
+      params.require(:course).permit(:name, :vendor_id, :start_date, :end_date, :description, :price, :location, :category_id => [])
     end
 end
